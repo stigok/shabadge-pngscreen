@@ -17,12 +17,17 @@ Using `pkill mpfshell` then starting from step #5 again for now.
 
 ### Gotchas
 
+- When connecting with screen, it may seem that the connection is hanging, but press CTRL+D and the device will restart and give you some output
+- Pressing CTRL+D while in the Python shell will make the device restart, so use `pkill mpfshell` to exit REPL
 - If the shell hangs, make sure the device isn't sleeping.
 - Some times after failing to connect, kill running mpfshell processes, wait for device
   restart, enter clean_repl and try again
 - Only a single mpfshell running at the time
 - At the very least, test the syntax before spending time pushing every single save to the device.
 - Run local `python` befre pushing to make sure the script is parseable.
+- Running `clean_repl` is kind of the same as writing `import shell` to console while device is about to sleep (e.g. after restarting)
+- Exit mpfshell python REPL with CTRL+]
+- When the REPL from mpfshell doesn't respond to the exit code, run `sudo pkill mpfshell` to avoid device reboot
 
 - Pretty fast now when I want to quit the REPL, wait for device restart, skip to menu then re-upload a new version of the script
 ```

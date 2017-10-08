@@ -1,4 +1,4 @@
-import wifi, time, gc
+import ugfx, wifi, time, gc, ubinascii
 import usocket as socket
 
 def log(msg):
@@ -13,15 +13,30 @@ while not wifi.sta_if.isconnected():
 addr = ('192.168.0.18', 80)
 
 data = b''
+tmpfile = 'screen.png'
+
+ugfx.init()
+
+def draw_image(file):
+  ugfx.display_image(0, 0, file)
+  ugfx.flush()
 
 def update():
   global data
-  s = socket.socket()
-  s.connect(addr)
-  s.send(b'GET / HTTP/1.1\r\nHost: bogus\r\n\r\n')
-  res = parse_response(s.recv(1000))
-  data = res[1]
-  s.close()
+  try:
+    s = socket.socket()
+    s.connect(addr)
+    s.send(b'GET / HTTP/1.1\r\nHost: bogus\r\n\r\n')
+    response = parse_response(s.recv(4096))
+    response_body = response[1]
+    with open(tmpfile, 'w+b') as f:
+      f.write(response_body)
+      f.flush()
+      draw_image(tmpfile)
+  except OSError:
+    log('Something wrong with the socket')
+  except ValueError:
+    log('Request failed (ValueError). Make sure server is reachable.')
   gc.collect()
 
 # Parse a raw HTTP response and return a string tuple with (headers, body)
