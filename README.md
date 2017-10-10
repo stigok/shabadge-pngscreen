@@ -19,8 +19,8 @@ Made for the SHA2017 badge
 
 ## TODO
 
-[x] write raw png/gif to screen
-[x] get raw image data from a server
+- [x] write raw png/gif to screen
+- [x] get raw image data from a server
 
 ## mpfshell
 
