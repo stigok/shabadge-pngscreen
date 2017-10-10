@@ -33,7 +33,7 @@ Using `pkill mpfshell` then starting from step #5 again for now.
 ```
 # pkill mpfshell
 # ./update.sh
-  >>> import appglue; appglue.start_app("foobar");
+  >>> import appglue; appglue.start_app("pngscreen");
 ```
 - If you can't seem to connect. Make sure you have the device plugged in. (Check it anyway)
 
