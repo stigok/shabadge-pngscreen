@@ -1,6 +1,23 @@
-# Thing on sha2017 badge
+# pngscreen
 
-[ ] write raw png/gif to screen
+Made for the SHA2017 badge
+
+## Usage
+
+1. Prepare an HTTP server which serves single PNG image files from its web root
+2. Enter the address of the HTTP server in `pngscreen.py`
+3. Upload sources to the badge using `update.sh`
+4. Set up WiFi network on the badge and start the app`
+
+## Installation
+
+1. Clone repo
+2. Upload sources to the badge using any method you know. I use `mpfshell` and
+   `screen`. See below for more information.
+
+## TODO
+
+[x] write raw png/gif to screen
 [x] get raw image data from a server
 
 ## mpfshell
