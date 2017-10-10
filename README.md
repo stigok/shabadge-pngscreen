@@ -2,6 +2,8 @@
 
 Made for the SHA2017 badge
 
+![SHA2017 badge with pngscreen](https://public.42.fm/1507666447139890377.jpg)
+
 ## Usage
 
 1. Prepare an HTTP server which serves single PNG image files from its web root
