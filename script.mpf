@@ -1,5 +1,0 @@
-open ttyUSB0
-cd /lib
-md foobar
-cd foobar
-mput .*\.py
